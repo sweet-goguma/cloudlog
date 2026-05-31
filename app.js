@@ -506,6 +506,11 @@ function handleSubmit(event) {
     state.entries = state.entries.map(item => item.id === id ? entry : item);
     showToast("작품 정보가 수정됐어요.");
   } else {
+    const duplicate = state.entries.find(e => e.title.trim().toLowerCase() === entry.title.trim().toLowerCase());
+    if (duplicate) {
+      const proceed = window.confirm(`'${entry.title}'은(는) 이미 등록된 작품이에요.\n그래도 등록하시겠어요?`);
+      if (!proceed) return;
+    }
     state.entries.unshift(entry);
     showToast("구름 속에 작품을 저장했어요.");
   }
