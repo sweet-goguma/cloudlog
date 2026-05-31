@@ -281,15 +281,22 @@ button { cursor: pointer; }
 }
 
 .archive-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 215px));
+  display: flex;
+  flex-wrap: nowrap;
   gap: 20px;
-  align-content: start;
-  transition: grid-template-columns 0.35s ease, gap 0.35s ease;
+  overflow-x: auto;
+  overflow-y: hidden;
+  align-items: start;
+  padding-bottom: 8px;
+  transition: gap 0.35s ease;
 }
 
+.archive-grid::-webkit-scrollbar { height: 4px; }
+.archive-grid::-webkit-scrollbar-track { background: transparent; }
+.archive-grid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
 /* ─── 작품 카드 ─── */
-.work-card { cursor: pointer; }
+.work-card { cursor: pointer; width: 215px; flex-shrink: 0; }
 
 .card-btn {
   width: 100%; padding: 0; border: 0; background: transparent;
@@ -868,7 +875,7 @@ textarea.form-input { resize: vertical; min-height: 80px; line-height: 1.55; }
   .country-dropdown { gap: 8px; padding: 7px 12px; font-size: 0.82rem; }
 
   /* 메인 콘텐츠 */
-  .archive-grid { grid-template-columns: repeat(2, minmax(0, 215px)); gap: 12px; }
+  .archive-grid { gap: 12px; }
   .content-area { padding: 18px; border-radius: 16px; }
   .controls-row { margin-bottom: 18px; }
 
