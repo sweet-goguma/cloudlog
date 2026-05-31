@@ -699,7 +699,7 @@ textarea.form-input { resize: vertical; min-height: 80px; line-height: 1.55; }
 .detail-ott-logo { width: 20px; height: 20px; object-fit: contain; border-radius: 4px; display: block; }
 
 .detail-title {
-  margin: 11px 0 6px;
+  margin: 11px 0 6px 4px;
   font-family: "Hakgyoansim Nadeuri", "Noto Sans KR", sans-serif;
   font-size: clamp(1.75rem, 3.4vw, 2.35rem);
   font-weight: 700;
