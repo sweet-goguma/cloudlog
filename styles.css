@@ -289,8 +289,9 @@ button { cursor: pointer; }
   overflow-x: auto;
   overflow-y: hidden;
   align-content: start;
-  padding-bottom: 20px;
+  padding-bottom: 32px;
   flex: 1;
+  min-height: 0;
   transition: gap 0.35s ease;
 }
 
@@ -298,14 +299,14 @@ button { cursor: pointer; }
 .archive-grid::-webkit-scrollbar-track { background: transparent; }
 .archive-grid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
-.form-card::-webkit-scrollbar,
-.detail-card::-webkit-scrollbar { width: 4px; background: transparent; }
-.form-card::-webkit-scrollbar-track,
-.detail-card::-webkit-scrollbar-track { background: transparent; margin-block: 40px; }
-.form-card::-webkit-scrollbar-thumb,
-.detail-card::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-.form-card::-webkit-scrollbar-corner,
-.detail-card::-webkit-scrollbar-corner { background: transparent; }
+.form-card-inner::-webkit-scrollbar,
+.detail-card-inner::-webkit-scrollbar { width: 4px; background: transparent; }
+.form-card-inner::-webkit-scrollbar-track,
+.detail-card-inner::-webkit-scrollbar-track { background: transparent; margin-block: 40px; }
+.form-card-inner::-webkit-scrollbar-thumb,
+.detail-card-inner::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.form-card-inner::-webkit-scrollbar-corner,
+.detail-card-inner::-webkit-scrollbar-corner { background: transparent; }
 
 /* ─── 작품 카드 ─── */
 .work-card { cursor: pointer; width: 215px; flex-shrink: 0; }
@@ -387,13 +388,18 @@ button { cursor: pointer; }
 .form-card {
   position: relative;
   width: min(900px, 100%);
-  max-height: calc(100vh - 48px);
-  overflow-y: auto;
   border-radius: 40px;
+  overflow: hidden;
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 24px 80px rgba(26, 29, 41, 0.22);
   isolation: isolate;
-  transition: border-radius 0.35s ease, max-height 0.35s ease;
+  transition: border-radius 0.35s ease;
+}
+
+.form-card-inner {
+  overflow-y: auto;
+  max-height: calc(100vh - 48px);
+  transition: max-height 0.35s ease;
 }
 
 .form-header {
@@ -620,12 +626,17 @@ textarea.form-input { resize: vertical; min-height: 80px; line-height: 1.55; }
 .detail-card {
   position: relative; z-index: 1;
   width: min(900px, 100%);
-  max-height: min(780px, calc(100vh - 48px));
-  overflow: auto;
   border-radius: 40px;
+  overflow: hidden;
   background: rgba(255,255,255,0.96);
   box-shadow: 0 24px 80px rgba(26,29,41,0.2);
-  transition: border-radius 0.35s ease, max-height 0.35s ease;
+  transition: border-radius 0.35s ease;
+}
+
+.detail-card-inner {
+  overflow: auto;
+  max-height: min(780px, calc(100vh - 48px));
+  transition: max-height 0.35s ease;
 }
 
 .detail-header {
@@ -893,7 +904,8 @@ textarea.form-input { resize: vertical; min-height: 80px; line-height: 1.55; }
 
   /* 상세 모달 */
   .detail-overlay { padding: 12px; }
-  .detail-card { border-radius: 24px; max-height: calc(100vh - 24px); }
+  .detail-card { border-radius: 24px; }
+  .detail-card-inner { max-height: calc(100vh - 24px); }
   .detail-header { padding: 24px 18px 18px; }
   .detail-title { text-align: center; }
   .detail-subtitle { text-align: center; margin-left: 0; }
@@ -908,7 +920,8 @@ textarea.form-input { resize: vertical; min-height: 80px; line-height: 1.55; }
 @media (max-width: 800px) {
   /* 폼 모달 */
   .form-modal { padding: 12px; }
-  .form-card { border-radius: 28px; max-height: calc(100vh - 24px); }
+  .form-card { border-radius: 28px; }
+  .form-card-inner { max-height: calc(100vh - 24px); }
   .form-header { padding: 20px 20px 14px; }
   .form-body { grid-template-columns: 1fr; row-gap: 20px; padding: 0 16px 24px; }
   .form-row { grid-template-columns: 64px 1fr; }
