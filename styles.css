@@ -778,8 +778,7 @@ textarea.form-input { resize: vertical; min-height: 80px; line-height: 1.55; }
 
 .confirm-backdrop {
   position: absolute; inset: 0;
-  background: rgba(26, 29, 41, 0.3);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .confirm-card {
