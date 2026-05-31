@@ -289,13 +289,20 @@ button { cursor: pointer; }
   overflow-x: auto;
   overflow-y: hidden;
   align-content: start;
-  padding-bottom: 11px;
+  padding-bottom: 15px;
   transition: gap 0.35s ease;
 }
 
 .archive-grid::-webkit-scrollbar { height: 4px; }
 .archive-grid::-webkit-scrollbar-track { background: transparent; }
 .archive-grid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.form-card::-webkit-scrollbar,
+.detail-card::-webkit-scrollbar { width: 4px; }
+.form-card::-webkit-scrollbar-track,
+.detail-card::-webkit-scrollbar-track { background: transparent; }
+.form-card::-webkit-scrollbar-thumb,
+.detail-card::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 /* ─── 작품 카드 ─── */
 .work-card { cursor: pointer; width: 215px; flex-shrink: 0; }
