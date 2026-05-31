@@ -289,7 +289,7 @@ button { cursor: pointer; }
   overflow-x: auto;
   overflow-y: hidden;
   align-content: start;
-  padding-bottom: 8px;
+  padding-bottom: 11px;
   transition: gap 0.35s ease;
 }
 
