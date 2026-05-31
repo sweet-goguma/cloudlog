@@ -289,6 +289,18 @@
     </div>
   </div>
 
+  <!-- 커스텀 확인 모달 -->
+  <div id="confirmModal" class="confirm-modal" role="dialog" aria-modal="true">
+    <div class="confirm-backdrop" id="confirmBackdrop"></div>
+    <div class="confirm-card">
+      <p class="confirm-message" id="confirmMessage"></p>
+      <div class="confirm-actions">
+        <button type="button" class="confirm-cancel-btn" id="confirmCancelBtn">취소</button>
+        <button type="button" class="confirm-ok-btn" id="confirmOkBtn">확인</button>
+      </div>
+    </div>
+  </div>
+
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script src="app.js"></script>

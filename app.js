@@ -505,19 +505,24 @@ function handleSubmit(event) {
   if (existingEntry) {
     state.entries = state.entries.map(item => item.id === id ? entry : item);
     showToast("작품 정보가 수정됐어요.");
+    saveEntries(); render(); closeDrawer();
   } else {
     const duplicate = state.entries.find(e => e.title.trim().toLowerCase() === entry.title.trim().toLowerCase());
     if (duplicate) {
-      const proceed = window.confirm(`'${entry.title}'은(는) 이미 등록된 작품이에요.\n그래도 등록하시겠어요?`);
-      if (!proceed) return;
+      showConfirm(
+        `'${entry.title}'은(는)\n이미 등록된 작품이에요.\n그래도 등록하시겠어요?`,
+        () => {
+          state.entries.unshift(entry);
+          showToast("구름 속에 작품을 저장했어요.");
+          saveEntries(); render(); closeDrawer();
+        }
+      );
+      return;
     }
     state.entries.unshift(entry);
     showToast("구름 속에 작품을 저장했어요.");
+    saveEntries(); render(); closeDrawer();
   }
-
-  saveEntries();
-  render();
-  closeDrawer();
 }
 
 function handlePosterUpload(event) {
@@ -711,18 +716,44 @@ function deleteEntry(id) {
   const entry = findEntry(id);
   if (!entry) return;
 
-  const confirmed = window.confirm(`「${entry.title}」 기록을 삭제할까요?`);
-  if (!confirmed) return;
-
-  state.entries = state.entries.filter(item => item.id !== id);
-  saveEntries();
-  render();
-  closeDetail();
-  showToast("작품 기록을 삭제했어요.");
+  showConfirm(
+    `「${entry.title}」\n기록을 삭제할까요?`,
+    () => {
+      state.entries = state.entries.filter(item => item.id !== id);
+      saveEntries();
+      render();
+      closeDetail();
+      showToast("작품 기록을 삭제했어요.");
+    }
+  );
 }
 
 function findEntry(id) {
   return state.entries.find(entry => entry.id === id);
+}
+
+function showConfirm(message, onConfirm, onCancel) {
+  const modal    = document.getElementById("confirmModal");
+  const msgEl    = document.getElementById("confirmMessage");
+  const okBtn    = document.getElementById("confirmOkBtn");
+  const cancelBtn= document.getElementById("confirmCancelBtn");
+  const backdrop = document.getElementById("confirmBackdrop");
+
+  msgEl.textContent = message;
+  modal.classList.add("open");
+
+  function cleanup() {
+    modal.classList.remove("open");
+    okBtn.removeEventListener("click", handleOk);
+    cancelBtn.removeEventListener("click", handleCancel);
+    backdrop.removeEventListener("click", handleCancel);
+  }
+  function handleOk()     { cleanup(); onConfirm?.(); }
+  function handleCancel() { cleanup(); onCancel?.(); }
+
+  okBtn.addEventListener("click", handleOk);
+  cancelBtn.addEventListener("click", handleCancel);
+  backdrop.addEventListener("click", handleCancel);
 }
 
 function showToast(message) {

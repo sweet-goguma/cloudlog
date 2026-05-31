@@ -767,6 +767,53 @@ textarea.form-input { resize: vertical; min-height: 80px; line-height: 1.55; }
 }
 
 
+/* ─── 커스텀 확인 모달 ─── */
+.confirm-modal {
+  position: fixed; inset: 0; z-index: 60;
+  display: grid; place-items: center; padding: 24px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+.confirm-modal.open { opacity: 1; pointer-events: auto; }
+
+.confirm-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(26, 29, 41, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.confirm-card {
+  position: relative; z-index: 1;
+  width: min(360px, 100%);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 24px 80px rgba(26, 29, 41, 0.2);
+  padding: 36px 32px 28px;
+  display: flex; flex-direction: column; gap: 28px;
+}
+
+.confirm-message {
+  margin: 0;
+  font-family: "MemomentKkukkukk", "Noto Sans KR", sans-serif;
+  font-size: 0.95rem; color: var(--text);
+  line-height: 1.8; text-align: center;
+  white-space: pre-line;
+}
+
+.confirm-actions {
+  display: flex; justify-content: center; gap: 32px;
+}
+
+.confirm-cancel-btn, .confirm-ok-btn {
+  padding: 0; border: 0; background: transparent;
+  font-family: "UhBee Se_hyun", "Noto Sans KR", sans-serif;
+  font-size: 0.92rem; font-weight: 700; letter-spacing: 0.08em;
+  cursor: pointer; transition: opacity 0.15s ease;
+}
+.confirm-cancel-btn { color: var(--muted); }
+.confirm-ok-btn { color: var(--border); }
+.confirm-cancel-btn:hover, .confirm-ok-btn:hover { opacity: 0.6; }
+
 /* ─── 토스트 ─── */
 .toast {
   position: fixed; right: 22px; bottom: 22px; z-index: 100;
