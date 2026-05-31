@@ -707,7 +707,7 @@ textarea.form-input { resize: vertical; min-height: 80px; line-height: 1.55; }
 }
 
 .detail-subtitle {
-  margin: 6px 0 26px 8px;
+  margin: 6px 0 26px 10px;
   font-family: "Hakgyoansim Nadeuri", "Noto Sans KR", sans-serif;
   font-weight: 300;
   color: var(--actor); font-size: 1.275rem;
