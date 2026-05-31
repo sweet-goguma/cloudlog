@@ -426,7 +426,7 @@ function openDrawer(entry = null) {
     setCheckedOtt(entry.ott);
 
     // 명대사 2분할
-    const quotes = (entry.quote || "").split("\n").filter(Boolean);
+    const quotes = (entry.quote || "").split("").filter(Boolean);
     elements.quote1Input.value = quotes[0] || "";
     elements.quote2Input.value = quotes[1] || "";
 
@@ -475,7 +475,7 @@ function handleSubmit(event) {
   const quotes = [
     elements.quote1Input.value.trim(),
     elements.quote2Input.value.trim(),
-  ].filter(Boolean).join("\n");
+  ].filter(Boolean).join("");
 
   const entry = {
     id,
@@ -644,7 +644,7 @@ function openDetail(id) {
   elements.editFromDetailBtn.dataset.editId = entry.id;
   elements.deleteFromDetailBtn.dataset.deleteId = entry.id;
 
-  const quotes = (entry.quote || "").split("\n").filter(Boolean);
+  const quotes = (entry.quote || "").split("").filter(Boolean);
   const quotesHtml = quotes.length
     ? quotes.map((q, i) => `<span class="quote-line"><span class="quote-num">${i + 1}.</span><span class="quote-text">${escapeHTML(q)}</span></span>`).join("")
     : "등록된 명대사가 없어요.";
