@@ -290,6 +290,7 @@ button { cursor: pointer; }
   overflow-y: hidden;
   align-content: start;
   padding-bottom: 20px;
+  flex: 1;
   transition: gap 0.35s ease;
 }
 
@@ -298,11 +299,13 @@ button { cursor: pointer; }
 .archive-grid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 .form-card::-webkit-scrollbar,
-.detail-card::-webkit-scrollbar { width: 4px; }
+.detail-card::-webkit-scrollbar { width: 4px; background: transparent; }
 .form-card::-webkit-scrollbar-track,
 .detail-card::-webkit-scrollbar-track { background: transparent; margin-block: 40px; }
 .form-card::-webkit-scrollbar-thumb,
 .detail-card::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.form-card::-webkit-scrollbar-corner,
+.detail-card::-webkit-scrollbar-corner { background: transparent; }
 
 /* ─── 작품 카드 ─── */
 .work-card { cursor: pointer; width: 215px; flex-shrink: 0; }
