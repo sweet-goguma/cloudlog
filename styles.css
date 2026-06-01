@@ -69,7 +69,7 @@ body {
   font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text);
   background: var(--bg);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 button, input, select, textarea { font: inherit; }
@@ -262,7 +262,7 @@ button { cursor: pointer; }
   flex: 1;
   min-height: 0;
   padding: 32px; border-radius: 20px;
-  border-bottom: 12px solid transparent;
+  border-bottom: 15px solid transparent;
   background: rgba(255, 255, 255, 0.42);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   display: flex; flex-direction: column;
@@ -272,7 +272,7 @@ button { cursor: pointer; }
 }
 
 .content-area::-webkit-scrollbar { height: 4px; }
-.content-area::-webkit-scrollbar-track { background: transparent; }
+.content-area::-webkit-scrollbar-track { background: transparent; margin-inline: 32px; }
 .content-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 /* ─── 빈 상태 (수직 중앙 정렬) ─── */
