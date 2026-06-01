@@ -69,7 +69,7 @@ body {
   font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text);
   background: var(--bg);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 button, input, select, textarea { font: inherit; }
@@ -92,7 +92,7 @@ button { cursor: pointer; }
   transition: width 0.35s ease;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 /* ─── 상단 네비게이션 ─── */
