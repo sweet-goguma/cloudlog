@@ -264,8 +264,14 @@ button { cursor: pointer; }
   background: rgba(255, 255, 255, 0.42);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   display: flex; flex-direction: column;
+  overflow-x: auto;
+  overflow-y: hidden;
   transition: padding 0.35s ease, border-radius 0.35s ease;
 }
+
+.content-area::-webkit-scrollbar { height: 4px; }
+.content-area::-webkit-scrollbar-track { background: transparent; }
+.content-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 /* ─── 빈 상태 (수직 중앙 정렬) ─── */
 .empty-state {
@@ -286,18 +292,10 @@ button { cursor: pointer; }
   grid-auto-flow: column;
   grid-auto-columns: 215px;
   gap: 20px;
-  overflow-x: auto;
-  overflow-y: hidden;
   align-content: start;
-  padding-bottom: 32px;
-  flex: 1;
-  min-height: 0;
+  align-self: flex-start;
   transition: gap 0.35s ease;
 }
-
-.archive-grid::-webkit-scrollbar { height: 4px; }
-.archive-grid::-webkit-scrollbar-track { background: transparent; }
-.archive-grid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 .form-card-inner::-webkit-scrollbar,
 .detail-card-inner::-webkit-scrollbar { width: 4px; background: transparent; }
