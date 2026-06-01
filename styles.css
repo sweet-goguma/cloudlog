@@ -88,7 +88,7 @@ button { cursor: pointer; }
   z-index: 1;
   width: min(1220px, calc(100% - 48px));
   margin: 0 auto;
-  padding: clamp(24px, 3vw, 32px) 0 40px;
+  padding: clamp(24px, 3vw, 32px) 0 30px;
   transition: width 0.35s ease;
   display: flex;
   flex-direction: column;
@@ -100,7 +100,7 @@ button { cursor: pointer; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px; /* 드롭다운 높이 + 아래 여백 확보 */
+  margin-bottom: 48px; /* 드롭다운 높이 + 아래 여백 확보 */
   transition: margin-bottom 0.35s ease;
 }
 
