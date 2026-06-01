@@ -100,7 +100,7 @@ button { cursor: pointer; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 48px; /* 드롭다운 높이 + 아래 여백 확보 */
+  margin-bottom: 30px; /* 드롭다운 높이 + 아래 여백 확보 */
   transition: margin-bottom 0.35s ease;
 }
 
